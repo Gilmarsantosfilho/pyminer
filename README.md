@@ -1,1 +1,6 @@
 # pyminer
+
+
+# Doação cryptomoedas
+
+XMR: 83kxNZrdjf9S9Di4PEFFA45PmcNjkYxuBbzWAvF8VvX44qzSFyQWp5bDeQYhBdFUpoAW6q4FquUuAYK1SU2sf6nLVhy4Qnn
