@@ -36,24 +36,10 @@ LEVEL_ERROR     = 'error'
 SCRYPT_LIBRARY_C = 'scrypt (https://github.com/forrestv/p2pool)'
 SCRYPT_LIBRARIES = [ SCRYPT_LIBRARY_C ]
 
-YESCRYPT_LIBRARY_C      = 'https://password-hashing.net/submissions/yescrypt-v1.tar.gz' #desautualizado
-YESCRYPT_LIBRARY_C      = 'https://password-hashing.net/submissions/yescrypt-v2.tar.gz' 
+#YESCRYPT_LIBRARY_C      = 'https://password-hashing.net/submissions/yescrypt-v1.tar.gz' #ultrapassado
+YESCRYPT_LIBRARY_C      = 'https://password-hashing.net/submissions/yescrypt-v2.tar.gz' #Funcionando100 
 YESCRYPT_LIBRARIES = [ YESCRYPT_LIBRARY_C ]
 
-WELCOME_MSG = ("If you have found this software useful and would like to support its future\n"
-               "development, please, feel free to donate:\n\n"
-               "   BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP\n"
-               "   ETH: 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689\n"
-               "   LTC: LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy\n"
-               "   BCH: 1AVXvPBrNdhTdwBN5VQT5LSHa7sEzMSia4\n"
-               "   XEM: NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ\n"
-               "   MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6\n"
-               "   KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE\n"
-               "   NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1\n\n"
-               "Happy mining!")
-
-def log(message, level):
-  '''Conditionally write a message to stdout based on command line options and level.'''
 
   global DEBUG
   global DEBUG_PROTOCOL
@@ -68,7 +54,7 @@ def log(message, level):
   print ("[%s] %s" % (time.strftime("%Y-%m-%d %H:%M:%S"), message))
 
 
-# Convert from/to binary and hexidecimal strings (could be replaced with .encode('hex') and .decode('hex'))
+# Converter de/para strings binárias e hexadecimais (pode ser substituído por .encode('hex') e .decode('hex'))
 hexlify = binascii.hexlify
 unhexlify = binascii.unhexlify
 
@@ -80,7 +66,7 @@ def sha256d(message):
 
 
 def swap_endian_word(hex_word):
-  '''Swaps the endianness of a hexidecimal string of a word and converts to a binary string.'''
+ '''Troca o endianness de uma string hexadecimal de uma palavra e converte em uma string binária.'''
 
   message = unhexlify(hex_word)
   if len(message) != 4: raise ValueError('Must be 4-byte word')
@@ -88,7 +74,7 @@ def swap_endian_word(hex_word):
 
 
 def swap_endian_words(hex_words):
-  '''Swaps the endianness of a hexidecimal string of words and converts to binary string.'''
+'''Troca o endianness de uma string hexadecimal de palavras e converte para string binária.'''
 
   message = unhexlify(hex_words)
   if len(message) % 4 != 0: raise ValueError('Must be 4-byte word aligned')
@@ -96,7 +82,7 @@ def swap_endian_words(hex_words):
 
 
 def human_readable_hashrate(hashrate):
-  '''Returns a human readable representation of hashrate.'''
+'''Retorna uma representação legível por humanos de hashrate.'''
 
   if hashrate < 1000:
     return '%2f hashes/s' % hashrate
@@ -110,7 +96,7 @@ def human_readable_hashrate(hashrate):
 SCRYPT_LIBRARY = None
 scrypt_proof_of_work = None
 def set_scrypt_library():
-  '''Sets the scrypt library implementation to use.'''
+'''Define a implementação da biblioteca scrypt a ser usada.'''
 
   global SCRYPT_LIBRARY
   global scrypt_proof_of_work
