@@ -1,5 +1,7 @@
 # pyminer
 
+https://github.com/crypto-jeronimo/pyminer
+
 # Altualizar as seguinte linha
 
 linha 39: YESCRYPT_LIBRARY_C= 'https://password-hashing.net/submissions/yescrypt-v1.tar.gz'
